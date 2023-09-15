@@ -5,8 +5,7 @@ if [ "${ACTION}" != "prettylist" ]; then
     URL=$(curl -s https://api.github.com/repos/evilsocket/opensnitch/releases | grep "browser_download_url.*${HOST_CPU}.deb" | grep -v "python3-opensnitch-ui" | grep -v -e '\-rc\/' | cut -d : -f 2,3 | tr -d \" | head -1 | awk '{sub(/^[\t]+/, "")};1')
     VERSION_PUBLISHED="$(echo "${URL}" | cut -d'/' -f8)"
 fi
-
-URL=$(curl -s https://api.github.com/repos/evilsocket/opensnitch/releases | grep "browser_download_url.*${HOST_CPU}.deb" | grep -v "python3-opensnitch-ui" | grep -v -e '\-rc\/' | cut -d : -f 2,3 | tr -d \" | head -1 | awk '{sub(/^[\t]+/, "")};1')
+URL=$(curl -s https://api.github.com/repos/evilsocket/opensnitch/releases | grep "browser_download_url.*deb" | grep -v "python3-opensnitch-ui" | grep -v -e '\-rc\/' | cut -d : -f 2,3 | tr -d \" | head -1 | awk '{sub(/^[\t]+/, "")};1')
 VERSION_PUBLISHED="$(echo "${URL}" | cut -d'/' -f8)"
 PRETTY_NAME="Opensnitch - Opensnitchd"
 WEBSITE="https://github.com/evilsocket/opensnitch"
